@@ -1,0 +1,75 @@
+/* 
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #999;
+  padding: 0 10px;
+}
+.title > h1 {
+  font-family: "Lobster", "cursive";
+}
+
+.nav-links > ul {
+  display: flex;
+  text-align: center;
+}
+
+.nav-links > ul > li {
+  padding: 10px;
+  list-style-type: none;
+  text-align: center;
+}
+.input_container {
+  padding: 10px;
+}
+.input {
+  margin: 0 5px;
+}
+
+.restaurant-card {
+  width: 200px;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.restaurant-card > img {
+  width: 100%;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.restaurantlist {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shimmer {
+  width: 200px;
+  height: 200px;
+  background: #c4c0c0;
+  margin: 10px;
+}
+
+.restaurant_menu_card_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.restaurant_menu_items {
+  display: flex;
+  flex-wrap: wrap;
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button-class {
+    @apply border border-orange-500 hover:bg-orange-500 hover:text-white rounded;
+  }
+}
