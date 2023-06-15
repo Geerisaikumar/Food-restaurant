@@ -1,2 +1,3 @@
 # Food-restaurant
-A Food Delivery App created using ReactJS.
+A Food Delivery App created using ReactJS
+Fetched Data from Swiggy APIs to populate restaurant cards.
