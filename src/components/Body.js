@@ -1,6 +1,6 @@
 import Restaurantcard from "./Restaurantcard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
+import Shimmer from "./Shimmer/Shimmer"
 import { Link } from "react-router-dom";
 import { Filterdata } from "./utils/helper";
 import { RESTAURANT_API } from "./constant";
@@ -41,7 +41,7 @@ let Body = () => {
   return AllRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="xs:px-8 ss:px-24 sm:px-2 md:px-16 lg:px-4 xl:px-6 ">
+    <div className="xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-4 xl:px-10 ">
       <div className="flex sm:justify-between sm:flex-row xs:flex-col-reverse xs:py-2 sm:px-4 sm:my-1 items-center border-b">
         <h1 className="font-bold xs:text-xl md:text-2xl ">
           {FilterRestaurants.length > 1
@@ -50,7 +50,7 @@ let Body = () => {
         </h1>
         <form className=" ">
           <input
-            className="bg-gray-50 xs:w-44 xs:px-1 lg:w-64 h-8 m-3 p-1 px-3 outline-none rounded focus:border focus:border-orange-500"
+            className="bg-gray-50 xs:w-44 xs:px-1 lg:w-64 h-8 m-3 p-1 px-3 outline-none rounded focus:border focus:border-orange"
             placeholder="Search for restaurants"
             value={SearchTxt}
             onChange={(e) => {

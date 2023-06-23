@@ -3,14 +3,14 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import useRestaurant from "./utils/useRestaurantMenu";
 import Menuitems from "./Menuitems";
-import ShimmerMenu from "./ShimmerMenu";
+import ShimmerMenu from "./Shimmer/ShimmerMenu";
 
 const RestaurantMenu = () => {
   let { resid } = useParams();
   // console.log(resid);
 
   const { restaurant } = useRestaurant(resid);
-  // console.log(restaurant);
+  console.log(restaurant);
 
   const restaurantMain = restaurant?.cards[0]?.card?.card?.info;
   // console.log("restaurantMain", restaurantMain);
@@ -23,7 +23,7 @@ const RestaurantMenu = () => {
   ) : (
     //     ----------    Restaurant Name   ------------------
 
-    <div className="display flex flex-col xs:mx-5 ss:mx-10 sm:mx-20 md:mx-44 lg:mx-32 xl:mx-60 ">
+    <div className="display flex flex-col xs:mx-5 ss:mx-10 sm:mx-16 lg:mx-28 xl:mx-48">
       <div className="py-5">
         <p className="text-[0.675rem] text-gray-500">{`Home / ${restaurantMain?.city} / ${restaurantMain?.locality} / ${restaurantMain?.name}`}</p>
       </div>
@@ -56,7 +56,7 @@ const RestaurantMenu = () => {
         </div>
 
         <div className="border border-gray-200 rounded flex flex-col items-center p-1 shadow-sm">
-          <p className="text-[#208B3A] font-bold py-1 border-b text-center">
+          <p className="text-darkgreen font-bold py-1 border-b text-center">
             <span className="text-[1rem] pr-1">★</span>
             {restaurantMain?.avgRating}
           </p>
@@ -82,4 +82,3 @@ const RestaurantMenu = () => {
 };
 
 export default RestaurantMenu;
-// End line 119

@@ -37,14 +37,14 @@ let Header = () => {
         <ul className="flex items-center lg:gap-4">
           <li className="xs:px-1">
             {isOnline ? (
-              <p className="flex items-center gap-2 text-green-500 font-medium">
+              <p className="flex items-center gap-2 text-lightgreen font-medium">
                 <span>
                   <HiStatusOnline />
                 </span>
                 Online
               </p>
             ) : (
-              <p className="flex items-center gap-2 text-red-600 font-medium animate-bounce ">
+              <p className="flex items-center gap-2 text-red font-medium animate-bounce ">
                 <span>
                   <HiStatusOffline />
                 </span>
@@ -52,7 +52,8 @@ let Header = () => {
               </p>
             )}
           </li>
-          <li className="xs:px-2 flex items-center xs:gap-1 lg:gap-2 hover:text-orange-500">
+
+          <li className="xs:px-2 flex items-center xs:gap-1 lg:gap-2 hover:text-orange ">
             <span>
               <RxPerson size={20} />
             </span>
@@ -60,12 +61,35 @@ let Header = () => {
               {user.name}
             </Link>
           </li>
-          <li className="xs:px-2 flex items-center xs:gap-1 lg:gap-2 hover:text-orange-500">
+
+          {/* <li className="xs:px-2 flex items-center xs:gap-1 lg:gap-2 hover:text-orange">
             <span>
               <BsCartCheck size={20} />
             </span>
             <Link to="/cart" className="first-letter:font-semibold">
               Cart {cartItems.length}
+            </Link>
+          </li> */}
+
+          <li className=" ">
+            <Link
+              to="/cart"
+              className="first-letter:font-semibold hover:text-orange "
+            >
+              <div className="flex xs:gap-1 lg:gap-2 ">
+                <p className="w-5 h-6  relative text-center hover:border-orange">
+                  <span
+                    className={`absolute inset-0 pt-[2px] rounded-tl-2xl text-sm ${
+                      cartItems.length !== 0
+                        ? "bg-green-500 text-white hover:bg-orange border-none"
+                        : "text-black border border-slate-500"
+                    }`}
+                  >
+                    {cartItems.length}
+                  </span>
+                </p>
+                <p className="text">Cart</p>
+              </div>
             </Link>
           </li>
         </ul>

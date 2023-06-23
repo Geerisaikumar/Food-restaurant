@@ -7,7 +7,6 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Cart from "./src/components/Cart";
 import Error from "./Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
-import Shimmer from "./src/components/Shimmer";
 import userContext from "./src/components/utils/userContext";
 import { Provider } from "react-redux";
 import store from "./src/components/utils/store";
