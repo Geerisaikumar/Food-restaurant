@@ -30,14 +30,14 @@ const Cart = () => {
 
   return cartItems.length ? (
     <div className="flex flex-col justify-center xs:mx-1 ss:mx-5 my-5 sm:mx-12 md:mx-24 lg:mx-36 xl:mx-60 bg-[##f0f2f6] z-0">
-      <h1 className="xs:text-xl sm:text-2xl font-medium text-orange py-2">
+      <h1 className="xs:text-xl sm:text-2xl font-medium text-orange ">
         Cart Summary Details
       </h1>
       {cartItems &&
         cartItems.map((item, id) => {
           // console.log(item);
           return (
-            <div key={item.id} className="">
+            <div key={id} className="">
               <Foodcart {...item} />
             </div>
           );
@@ -77,7 +77,7 @@ const Cart = () => {
     </div>
   ) : (
     <div className="flex flex-col items-center my-16 mx-auto ">
-      <img src={EmptyCart} className="w-80 rounded" />
+      <img src={EmptyCart} className="w-80 rounded" alt="EmptyCart" />
       <h1 className="text-center text-lg font-bold py-3">Your Cart is Empty</h1>
       <p className=" text-sm text-gray-500">
         You can go to home page to view more restaurants

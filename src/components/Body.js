@@ -1,6 +1,6 @@
 import Restaurantcard from "./Restaurantcard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer/Shimmer"
+import Shimmer from "./Shimmer/Shimmer";
 import { Link } from "react-router-dom";
 import { Filterdata } from "./utils/helper";
 import { RESTAURANT_API } from "./constant";
@@ -32,16 +32,10 @@ let Body = () => {
     }
   }
 
-  //Not Render Component (Early Return)
-
-  if (!AllRestaurants) return null;
-
-  // if (FilterRestaurants.length === 0) return <h1>No Result Found</h1>;
-
   return AllRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-4 xl:px-10 ">
+    <div className="xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-11 xl:px-5 ">
       <div className="flex sm:justify-between sm:flex-row xs:flex-col-reverse xs:py-2 sm:px-4 sm:my-1 items-center border-b">
         <h1 className="font-bold xs:text-xl md:text-2xl ">
           {FilterRestaurants.length > 1

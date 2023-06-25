@@ -2,7 +2,6 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import userContext from "./utils/userContext";
 import { useSelector } from "react-redux";
-import { BsCartCheck } from "react-icons/bs";
 import { HiStatusOffline, HiStatusOnline } from "react-icons/hi";
 import { RxPerson } from "react-icons/rx";
 import Logo from "../Images/Logo.png";
@@ -14,6 +13,7 @@ let Title = () => {
       <Link to="/">
         <img
           src={Logo}
+          alt="Logo"
           className="w-12 xs:w-10 sm:w-14 bg-white hover:scale-105 ease-out duration-500"
         />
       </Link>
@@ -22,7 +22,6 @@ let Title = () => {
 };
 
 let Header = () => {
-  let [isLoggedIn, setIsLoggedIn] = useState(false);
   let { user } = useContext(userContext);
   let cartItems = useSelector((store) => store.cart.items);
 
@@ -61,15 +60,6 @@ let Header = () => {
               {user.name}
             </Link>
           </li>
-
-          {/* <li className="xs:px-2 flex items-center xs:gap-1 lg:gap-2 hover:text-orange">
-            <span>
-              <BsCartCheck size={20} />
-            </span>
-            <Link to="/cart" className="first-letter:font-semibold">
-              Cart {cartItems.length}
-            </Link>
-          </li> */}
 
           <li className=" ">
             <Link

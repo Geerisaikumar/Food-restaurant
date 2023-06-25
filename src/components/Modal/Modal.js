@@ -10,8 +10,8 @@ const Modal = () => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm flex items-center justify-center overscroll-none">
       <div className="bg-white w-80 h-56 flex flex-col items-center justify-center rounded ">
-        <img src={Success} className="w-36" />
-        <p className="pb-10">Order Successful!</p>
+        <img src={Success} className="w-16" alt="Success-pic" />
+        <p className="py-6">Order Successful!</p>
         <Link to={"/"}>
           <button
             onClick={() => clearCartItems()}

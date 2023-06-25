@@ -22,7 +22,7 @@ let Restaurantcard = ({
         alt="restaurant"
         loading="lazy"
       />
-      <h3 className="first-letter:font-bold  text-sm p-1 first">{name}</h3>
+      <h3 className="first-letter:font-bold  text-sm p-1 ">{name}</h3>
       <h4 className="text-xs text-gray-600">{cuisines.join(", ")}</h4>
       <div className="flex justify-between py-3 items-center text-[12px] text-gray-600">
         <p

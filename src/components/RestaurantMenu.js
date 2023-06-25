@@ -13,17 +13,26 @@ const RestaurantMenu = () => {
   console.log(restaurant);
 
   const restaurantMain = restaurant?.cards[0]?.card?.card?.info;
-  // console.log("restaurantMain", restaurantMain);
+
+  const restaurantMenuDetails =
+    restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR;
+  console.log(restaurantMenuDetails);
+
   const restaurantMenu =
-    restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-      ?.card?.itemCards;
+    restaurantMenuDetails?.cards[1]?.card?.card?.itemCards ||
+    restaurantMenuDetails?.cards[2]?.card?.card?.itemCards;
+  // console.log("restaurantMenu", restaurantMenu);
+
+  const restaurantMenuTitle =
+    restaurantMenuDetails?.cards[1]?.card?.card?.title ||
+    restaurantMenuDetails?.cards[2]?.card?.card?.title;
 
   return !restaurant ? (
     <ShimmerMenu />
   ) : (
     //     ----------    Restaurant Name   ------------------
 
-    <div className="display flex flex-col xs:mx-5 ss:mx-10 sm:mx-16 lg:mx-28 xl:mx-48">
+    <div className="display flex flex-col xs:mx-3 ss:mx-10 sm:mx-16 md:mx-28 lg:mx-32 xl:mx-60">
       <div className="py-5">
         <p className="text-[0.675rem] text-gray-500">{`Home / ${restaurantMain?.city} / ${restaurantMain?.locality} / ${restaurantMain?.name}`}</p>
       </div>
@@ -53,6 +62,24 @@ const RestaurantMenu = () => {
               {restaurantMain?.costForTwoMessage}
             </p>
           </div>
+
+          {/* Incase of Rain / Restaurant Busy this Will be Enabled on RestaurantMenu Page */}
+
+          {restaurantMain?.expectationNotifiers[0]?.text ? (
+            <div className="flex gap-2 my-1 items-center">
+              <img
+                className="h-3"
+                src={
+                  IMG_CDN_URL +
+                  restaurantMain?.expectationNotifiers[0]?.icon?.imageId
+                }
+                alt="NotifiersIMG"
+              />
+              <p className="text-[13px] lg:text-sm text-slate-600">
+                {restaurantMain?.expectationNotifiers[0]?.text}
+              </p>
+            </div>
+          ) : null}
         </div>
 
         <div className="border border-gray-200 rounded flex flex-col items-center p-1 shadow-sm">
@@ -69,6 +96,9 @@ const RestaurantMenu = () => {
       {/* ----------    Restaurant Menuitems   ------------------ */}
 
       <div className="flex flex-col flex-wrap ">
+        <p className="pt-3 font-bold md:text-lg">
+          {restaurantMenuTitle} {"(" + restaurantMenu.length + ")"}
+        </p>
         {restaurantMenu &&
           Object.values(restaurantMenu).map((menu, id) => {
             const menuItems = menu?.card?.info;

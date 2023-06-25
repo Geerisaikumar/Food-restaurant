@@ -19,8 +19,8 @@ const Menuitems = ({ items }) => {
   return (
     <div className="flex justify-between py-2 border-gray-400 border-b">
       <div className="">
-        <h3 className="font-bold p-1 xs:text-sm lg:text-base">{name}</h3>
-        <h3 className="">{"₹ " + price}</h3>
+        <h3 className="font-medium p-1 xs:text-sm lg:text-[0.9rem]">{name}</h3>
+        <h3 className="text-sm">{"₹ " + price}</h3>
 
         <p
           className={`p-1 pt-2 lg:w-[35rem] text-gray-400 text-sm w-[40rem] xs:hidden lg:inline-block`}
@@ -31,7 +31,7 @@ const Menuitems = ({ items }) => {
       <div className="flex flex-col items-center ">
         <img
           src={imageId ? IMG_CDN_URL + imageId : Default}
-          className="xs:w-24 sm:w-32 lg:w-44 rounded "
+          className="xs:w-24 sm:w-32 lg:w-36 rounded "
         />
 
         <button

@@ -29,6 +29,7 @@ const Foodcart = (cartitem) => {
         <img
           src={imageId ? IMG_CDN_URL + imageId : Default}
           className="xs:w-24 sm:w-32  rounded"
+          alt="RestaurantCardIMG"
         />
         <p className="xs:text-xs ss:text-sm sm:text-base font-bold xs:w-28 ss:w-44">
           {name}
@@ -37,14 +38,14 @@ const Foodcart = (cartitem) => {
       <div className="flex xs:gap-2 ss:gap-5 items-center">
         <div className="flex gap-1 border xs:px-1 ss:px-4 xs:py-0 ss:py-2">
           <button
-            className="hover:text--lightgreen"
+            className="hover:text-lightgreen"
             onClick={() => decrement(cartitem)}
           >
             -
           </button>
           <h2>{quantity}</h2>
           <button
-            className="hover:text--lightgreen"
+            className="hover:text-lightgreen"
             onClick={() => increment(cartitem)}
           >
             +
