@@ -32,30 +32,30 @@ const RestaurantMenu = () => {
   ) : (
     //     ----------    Restaurant Name   ------------------
 
-    <div className="display flex flex-col xs:mx-3 ss:mx-10 sm:mx-16 md:mx-28 lg:mx-32 xl:mx-60">
+    <div className="display flex flex-col xs:mx-3 ss:mx-10 sm:mx-16 md:mx-28 lg:mx-32 xl:mx-60 ">
       <div className="py-5">
         <p className="text-[0.675rem] text-gray-500">{`Home / ${restaurantMain?.city} / ${restaurantMain?.locality} / ${restaurantMain?.name}`}</p>
       </div>
-      <div className="flex justify-between items-center border-b-2 border-dashed ">
+      <div className="flex justify-between items-center border-b-2 border-dashed sticky top-0 bg-white h-[calc(100%-5.25rem)]">
         <div className="display flex flex-col ">
-          <h1 className="font-bold lg:text-xl xs:text-base">
+          <h1 className="font-bold lg:text-lg xs:text-base">
             {restaurantMain?.name}
           </h1>
-          <h4 className="text-[13px] lg:text-sm text-slate-600 ">
+          <h4 className="text-[13px] lg:text-xs text-slate-600 ">
             {restaurantMain?.cuisines.join(", ")}
           </h4>
-          <h3 className="text-[13px] lg:text-sm text-slate-600">
+          <h3 className="text-[13px] lg:text-xs text-slate-600">
             {restaurantMain?.locality},{" "}
             {restaurantMain?.sla?.lastMileTravelString}
           </h3>
           <div className="flex lg:gap-5 xs:gap-2 py-3 xs:text-sm font-medium">
-            <p className="flex lg:gap-2 xs:gap-1 items-center ">
+            <p className="flex  xs:gap-1 items-center ">
               <span>
                 <AiOutlineClockCircle size={20} />
               </span>
               {restaurantMain?.sla?.slaString}
             </p>
-            <p className="flex lg:gap-2 xs:gap-1 items-center ">
+            <p className="flex xs:gap-1 items-center ">
               <span>
                 <HiOutlineCurrencyRupee size={20} />
               </span>

@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import userContext from "./utils/userContext";
 import { useSelector } from "react-redux";
@@ -9,12 +9,12 @@ import useOnline from "./utils/useOnline";
 
 let Title = () => {
   return (
-    <div className="title">
+    <div className="xs:h-11 sm:h-16">
       <Link to="/">
         <img
           src={Logo}
           alt="Logo"
-          className="w-12 xs:w-10 sm:w-14 bg-white hover:scale-105 ease-out duration-500"
+          className="xs:w-10 sm:w-14 bg-white hover:scale-105 ease-out duration-500"
         />
       </Link>
     </div>
@@ -30,7 +30,7 @@ let Header = () => {
   console.log(cartItems);
 
   return (
-    <div className="flex justify-between items-center py-2 xs:px-3 ss:px-4 md:px-10 lg:px-12 shadow-md bg-white sticky top-0 z-10">
+    <div className="flex justify-between items-center py-2 xs:px-3 ss:px-4 md:px-10 lg:px-12 shadow-md bg-white  z-10">
       <Title />
       <div>
         <ul className="flex items-center lg:gap-4">

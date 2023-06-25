@@ -20,7 +20,6 @@ let Restaurantcard = ({
         className="w-72 h-44 rounded-sm"
         src={IMG_CDN_URL + cloudinaryImageId}
         alt="restaurant"
-        loading="lazy"
       />
       <h3 className="first-letter:font-bold  text-sm p-1 ">{name}</h3>
       <h4 className="text-xs text-gray-600">{cuisines.join(", ")}</h4>

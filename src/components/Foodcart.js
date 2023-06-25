@@ -31,7 +31,7 @@ const Foodcart = (cartitem) => {
           className="xs:w-24 sm:w-32  rounded"
           alt="RestaurantCardIMG"
         />
-        <p className="xs:text-xs ss:text-sm sm:text-base font-bold xs:w-28 ss:w-44">
+        <p className="xs:text-xs ss:text-sm font-bold xs:w-28 ss:w-60">
           {name}
         </p>
       </div>
