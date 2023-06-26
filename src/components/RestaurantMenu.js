@@ -2,8 +2,8 @@ import { useParams } from "react-router-dom";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import useRestaurant from "./utils/useRestaurantMenu";
-import Menuitems from "./Menuitems";
 import ShimmerMenu from "./Shimmer/ShimmerMenu";
+import RecommendedMenuitems from "./RecommendedMenuitems";
 
 const RestaurantMenu = () => {
   let { resid } = useParams();
@@ -13,6 +13,7 @@ const RestaurantMenu = () => {
   console.log(restaurant);
 
   const restaurantMain = restaurant?.cards[0]?.card?.card?.info;
+  console.log("restaurantMain", restaurantMain);
 
   const restaurantMenuDetails =
     restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR;
@@ -34,9 +35,9 @@ const RestaurantMenu = () => {
 
     <div className="display flex flex-col xs:mx-3 ss:mx-10 sm:mx-16 md:mx-28 lg:mx-32 xl:mx-60 ">
       <div className="py-5">
-        <p className="text-[0.675rem] text-gray-500">{`Home / ${restaurantMain?.city} / ${restaurantMain?.locality} / ${restaurantMain?.name}`}</p>
+        <p className="text-[0.675rem] text-gray-500">{`Home / ${restaurantMain?.city} / ${restaurantMain?.name}`}</p>
       </div>
-      <div className="flex justify-between items-center border-b-2 border-dashed sticky top-0 bg-white h-[calc(100%-5.25rem)]">
+      <div className="flex justify-between items-center border-b-2 border-dashed sticky top-0 bg-white h-[calc(100%-4rem)]">
         <div className="display flex flex-col ">
           <h1 className="font-bold lg:text-lg xs:text-base">
             {restaurantMain?.name}
@@ -104,7 +105,7 @@ const RestaurantMenu = () => {
             const menuItems = menu?.card?.info;
             // console.log(menuItems);
 
-            return <Menuitems key={id} items={menuItems} />;
+            return <RecommendedMenuitems key={id} items={menuItems} />;
           })}
       </div>
     </div>
