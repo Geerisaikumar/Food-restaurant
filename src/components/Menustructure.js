@@ -3,12 +3,12 @@ import { addItem } from "./utils/cartSlice";
 import { IMG_CDN_URL } from "./constant";
 import Default from "../Images/default.jpg";
 
-const Menuitems = ({ items }) => {
-  // console.log("items", items);
-  const { imageId, name, description } = items;
+const Menustructure = ({ items }) => {
+//   console.log("items", items);
+  const { imageId, name, description } = items?.card?.info;
 
-  const price = items.price / 100 || items.defaultPrice / 100;
-
+  const price =
+    items?.card?.info?.price / 100 || items?.card?.info?.defaultPrice / 100;
   let dispatch = useDispatch();
 
   const FoodCartItems = (items) => {
@@ -45,4 +45,4 @@ const Menuitems = ({ items }) => {
   );
 };
 
-export default Menuitems;
+export default Menustructure;

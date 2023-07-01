@@ -9,12 +9,12 @@ import useOnline from "./utils/useOnline";
 
 let Title = () => {
   return (
-    <div className="xs:h-11 sm:h-16">
+    <div className="xs:h-11 sm:h-14">
       <Link to="/">
         <img
           src={Logo}
           alt="Logo"
-          className="xs:w-10 sm:w-14 bg-white hover:scale-105 ease-out duration-500"
+          className="xs:w-10 sm:w-11 bg-white hover:scale-105 ease-out duration-500"
         />
       </Link>
     </div>
@@ -31,7 +31,7 @@ let Header = () => {
 
   return (
     <div
-      className="flex justify-between items-center py-2 xs:px-3 ss:px-4 md:px-10 lg:px-12 shadow-md bg-white 
+      className="flex justify-between items-center py-1 xs:px-3 ss:px-4 md:px-10 lg:px-12 shadow-md bg-white 
      z-10"
     >
       <Title />

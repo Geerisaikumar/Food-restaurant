@@ -48,7 +48,7 @@ let Body = () => {
             placeholder="Search for restaurants"
             value={SearchTxt}
             onChange={(e) => {
-              console.log(e.target.value);
+              // console.log(e.target.value);
               SetSearchTxt(e.target.value);
             }}
           />

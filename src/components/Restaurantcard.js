@@ -41,7 +41,7 @@ let Restaurantcard = ({
       </div>
       {visible && (
         <div className={`border-t`}>
-          <p className="text-xs font-bold text-center pt-3 text-blue-500 py-auto">
+          <p className="text-xs font-bold text-center pt-3 text-blue-500 ">
             QUICK VIEW
           </p>
         </div>

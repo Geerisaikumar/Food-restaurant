@@ -13,7 +13,7 @@ let useRestaurantMenu = (resid) => {
       const data = await fetch(
         RESTAURANT_MENU_URL + resid + "&submitAction=ENTER"
       );
-      console.log(data);
+      // console.log(data);
       if (data.status !== 200) {
         throw new Error("API Internal Error");
       } else {
