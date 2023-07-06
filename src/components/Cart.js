@@ -29,13 +29,13 @@ const Cart = () => {
   // xs:mx-5 ss:mx-10 sm:mx-20 md:mx-44 lg:mx-32 xl:mx-60
 
   return cartItems.length ? (
-    <div className="flex flex-col justify-center xs:mx-1 ss:mx-5 my-5 sm:mx-12 md:mx-24 lg:mx-36 xl:mx-60 bg-[##f0f2f6] z-0">
+    <div className="flex flex-col justify-center xs:mx-1 ss:mx-5 my-5 sm:mx-12 md:mx-24 lg:mx-36 xl:mx-80 bg-[##f0f2f6] z-0">
       <h1 className="xs:text-xl sm:text-2xl font-medium text-orange ">
         Cart Summary Details
       </h1>
       {cartItems &&
         cartItems.map((item, id) => {
-          // console.log(item);
+          console.log(item);
           return (
             <div key={id} className="">
               <Foodcart {...item} />
@@ -76,7 +76,7 @@ const Cart = () => {
       </div>
     </div>
   ) : (
-    <div className="flex flex-col items-center my-16 mx-auto ">
+    <div className="flex flex-col items-center my-14 mx-auto ">
       <img src={EmptyCart} className="w-80 rounded" alt="EmptyCart" />
       <h1 className="text-center text-lg font-bold py-3">Your Cart is Empty</h1>
       <p className=" text-sm text-gray-500">

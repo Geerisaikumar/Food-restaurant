@@ -20,21 +20,12 @@ const RestaurantMenu = () => {
     restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR;
   // console.log(restaurantMenuDetails);
 
-  const restaurantMenu =
-    restaurantMenuDetails?.cards[1]?.card?.card?.itemCards ||
-    restaurantMenuDetails?.cards[2]?.card?.card?.itemCards;
-  // console.log("restaurantMenu", restaurantMenu);
-
-  const restaurantMenuTitle =
-    restaurantMenuDetails?.cards[1]?.card?.card?.title ||
-    restaurantMenuDetails?.cards[2]?.card?.card?.title;
-
   return !restaurant ? (
     <ShimmerMenu />
   ) : (
     //     ----------    Restaurant Name   ------------------
 
-    <div className="display flex flex-col xs:mx-1 ss:mx-10 sm:mx-16 md:mx-28 lg:mx-32 xl:mx-60 ">
+    <div className="display flex flex-col xs:mx-2 ss:mx-10 sm:mx-16 md:mx-28 lg:mx-32 xl:mx-60 ">
       <div className="py-5">
         <p className="text-[0.675rem] text-gray-500">{`Home / ${restaurantMain?.city} / ${restaurantMain?.name}`}</p>
       </div>
@@ -51,7 +42,7 @@ const RestaurantMenu = () => {
             {restaurantMain?.sla?.lastMileTravelStrin}
           </h3>
           <div className="flex lg:gap-5 xs:gap-2 py-3 xs:text-sm font-medium">
-            <p className="flex  xs:gap-1 items-center ">
+            <p className="flex xs:gap-1 items-center ">
               <span>
                 <AiOutlineClockCircle size={20} />
               </span>
@@ -68,16 +59,16 @@ const RestaurantMenu = () => {
           {/* Incase of Rain / Restaurant Busy this Will be Enabled on RestaurantMenu Page */}
 
           {restaurantMain?.expectationNotifiers[0]?.icon?.imageId ? (
-            <div className="flex gap-2 my-1 items-center">
+            <div className="flex gap-2  my-1">
               <img
-                className="h-3"
+                className="h-3 mt-1"
                 src={
                   IMG_CDN_URL +
                   restaurantMain?.expectationNotifiers[0]?.icon?.imageId
                 }
                 alt="NotifiersIMG"
               />
-              <p className="text-[13px] xs:text-[11px]  lg:text-[13px] text-slate-600">
+              <p className="text-[13px] xs:text-[11px] lg:text-[13px] text-slate-600 xs:w-72 sm:w-full ">
                 {restaurantMain?.expectationNotifiers[0]?.text}
               </p>
             </div>

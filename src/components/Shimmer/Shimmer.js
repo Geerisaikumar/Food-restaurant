@@ -8,11 +8,11 @@ let Shimmer = () => {
           Looking for great food...
         </p>
       </div>
-      <div className="flex flex-wrap xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-11 xl:px-5 rounded animate-pulse">
+      <div className="flex flex-wrap xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-11 xl:px-16 rounded animate-pulse">
         {Array(16)
           .fill("")
           .map((e, indx) => (
-            <div className="m-1" key={indx}>
+            <div className="m-2" key={indx}>
               <p className="w-72 h-40 bg-lightgray "></p>
               <p className="my-3 w-32 h-2 bg-lightgray "></p>
               <p className="my-3 w-24 h-2 bg-lightgray "></p>

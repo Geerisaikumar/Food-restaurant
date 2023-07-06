@@ -6,7 +6,8 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import { decrementCart, incrementCart, removeItem } from "./utils/cartSlice";
 
 const Foodcart = (cartitem) => {
-  const { name, price, quantity, defaultPrice, imageId } = cartitem;
+  console.log(cartitem);
+  const { name, price, defaultPrice, imageId } = cartitem;
   const priceItem = price / 100 || defaultPrice / 100;
   // console.log(id);
   const dispatch = useDispatch();
@@ -35,15 +36,15 @@ const Foodcart = (cartitem) => {
           {name}
         </p>
       </div>
-      <div className="flex xs:gap-2 ss:gap-5 items-center">
-        <div className="flex gap-1 border xs:px-1 ss:px-4 xs:py-0 ss:py-2">
+      <div className="flex xs:gap-2 ss:gap-5 sm:gap-8 items-center">
+        <div className="flex gap-1 border xs:px-1 ss:px-2 sm:px-3 xs:py-0 ss:py-1">
           <button
             className="hover:text-lightgreen"
             onClick={() => decrement(cartitem)}
           >
             -
           </button>
-          <h2>{quantity}</h2>
+          <h2>{cartitem?.quantity}</h2>
           <button
             className="hover:text-lightgreen"
             onClick={() => increment(cartitem)}
@@ -53,7 +54,7 @@ const Foodcart = (cartitem) => {
         </div>
 
         <h1 className="font-medium xs:text-xs ss:text-sm sm:text-base">
-          {"₹ " + (quantity * priceItem).toFixed(2)}
+          {"₹" + (cartitem?.quantity * priceItem).toFixed(2)}
         </h1>
         <p className="hover:text-red" onClick={() => deleteCartItem(cartitem)}>
           <AiOutlineCloseCircle />

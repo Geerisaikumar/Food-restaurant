@@ -35,8 +35,8 @@ let Body = () => {
   return AllRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-11 xl:px-5  ">
-      <div className="flex sm:justify-between sm:flex-row xs:flex-col-reverse xs:py-2  sm:my-1 items-center border-b sticky top-0 bg-white h-[calc(100%-4rem)]">
+    <div className="">
+      <div className="flex sm:justify-between bg-white sm:flex-row xs:flex-col-reverse xs:py-2  sm:my-1 items-center border-b sticky top-0  h-[calc(100%-4rem)] xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-11 xl:px-5">
         <h1 className="font-bold xs:text-xl md:text-2xl ">
           {FilterRestaurants.length > 1
             ? FilterRestaurants.length + " Restaurants"
@@ -66,7 +66,7 @@ let Body = () => {
         </form>
       </div>
 
-      <div className="flex flex-col ">
+      <div className="flex flex-col xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-10 xl:px-16">
         <div className="flex flex-wrap font-medium">
           {FilterRestaurants.length === 0 ? (
             <SearchErrorPage />
