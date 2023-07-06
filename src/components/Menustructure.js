@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "./utils/cartSlice";
 import { IMG_CDN_URL } from "./constant";
-import Default from "../Images/default.jpg";
+import Default from "../Images/gray.jpg";
 
 const Menustructure = ({ items }) => {
   // console.log("items", items);
@@ -36,7 +36,7 @@ const Menustructure = ({ items }) => {
       <div className="flex flex-col items-center ">
         <img
           src={imageId ? IMG_CDN_URL + imageId : Default}
-          className="xs:w-24 sm:w-32 lg:w-36 rounded "
+          className="xs:w-24 sm:w-32 lg:w-36 h-24 rounded "
         />
 
         <button

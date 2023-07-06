@@ -1,6 +1,6 @@
 import React from "react";
 import { IMG_CDN_URL } from "./constant";
-import Default from "../Images/default.jpg";
+import Default from "../Images/gray.jpg";
 import { useDispatch } from "react-redux";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { decrementCart, incrementCart, removeItem } from "./utils/cartSlice";
@@ -26,7 +26,7 @@ const Foodcart = (cartitem) => {
 
   return (
     <div className="flex justify-between py-2 border-b items-center z-0">
-      <div className="flex xs:gap-2 ss:gap-2 sm:gap-5 items-center">
+      <div className="flex xs:gap-2 ss:gap-2 sm:gap-5 h-24 items-center">
         <img
           src={imageId ? IMG_CDN_URL + imageId : Default}
           className="xs:w-24 sm:w-32  rounded"
@@ -36,23 +36,23 @@ const Foodcart = (cartitem) => {
           {name}
         </p>
       </div>
-      <div className="flex xs:gap-2 ss:gap-5 sm:gap-8 items-center">
-        <div className="flex gap-1 border xs:px-1 ss:px-2 sm:px-3 xs:py-0 ss:py-1">
-          <button
-            className="hover:text-lightgreen"
-            onClick={() => decrement(cartitem)}
-          >
-            -
-          </button>
-          <h2>{cartitem?.quantity}</h2>
-          <button
-            className="hover:text-lightgreen"
-            onClick={() => increment(cartitem)}
-          >
-            +
-          </button>
-        </div>
+      <div className="flex gap-1 border xs:px-1 ss:px-2 sm:px-3 xs:py-0 ss:py-1">
+        <button
+          className="hover:text-lightgreen"
+          onClick={() => decrement(cartitem)}
+        >
+          -
+        </button>
+        <h2>{cartitem?.quantity}</h2>
+        <button
+          className="hover:text-lightgreen"
+          onClick={() => increment(cartitem)}
+        >
+          +
+        </button>
+      </div>
 
+      <div className="flex justify-between items-center xs:gap-2 ss:gap-5">
         <h1 className="font-medium xs:text-xs ss:text-sm sm:text-base">
           {"₹" + (cartitem?.quantity * priceItem).toFixed(2)}
         </h1>

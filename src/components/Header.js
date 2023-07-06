@@ -9,12 +9,12 @@ import useOnline from "./utils/useOnline";
 
 let Title = () => {
   return (
-    <div className="xs:h-11 sm:h-14">
+    <div className="xs:h-11 sm:h-16">
       <Link to="/">
         <img
           src={Logo}
           alt="Logo"
-          className="xs:w-10 sm:w-11 bg-white hover:scale-105 ease-out duration-500"
+          className="xs:w-10 sm:w-12 sm:my-1 bg-white hover:scale-105 ease-out duration-500"
         />
       </Link>
     </div>
