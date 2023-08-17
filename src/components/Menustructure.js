@@ -7,7 +7,7 @@ const Menustructure = ({ items }) => {
   // console.log("items", items);
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
   const { imageId, defaultPrice, ribbon, name, description } = items;
 
   const price = items?.price / 100 || defaultPrice / 100;

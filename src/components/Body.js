@@ -11,6 +11,7 @@ let Body = () => {
   let [AllRestaurants, SetAllRestaurants] = useState([]);
   let [SearchTxt, SetSearchTxt] = useState("");
 
+  console.log(FilterRestaurants);
   useEffect(() => {
     Getrestaurantdata();
   }, []);
@@ -24,8 +25,18 @@ let Body = () => {
       } else {
         const json = await data.json();
         console.log("json", json);
-        SetAllRestaurants(json?.data?.cards);
-        SetFilterRestaurants(json?.data?.cards);
+        SetAllRestaurants(
+          json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants ||
+            json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants
+        );
+        SetFilterRestaurants(
+          json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants ||
+            json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants
+        );
       }
     } catch (error) {
       console.log(error);
@@ -35,7 +46,7 @@ let Body = () => {
   return AllRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="">
+    <div>
       <div className="flex sm:justify-between bg-white sm:flex-row xs:flex-col-reverse xs:py-2  sm:my-1 items-center border-b sticky top-0  h-[calc(100%-4rem)] xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-11 xl:px-5">
         <h1 className="font-bold xs:text-xl md:text-2xl ">
           {FilterRestaurants.length > 1
@@ -73,13 +84,18 @@ let Body = () => {
           ) : (
             FilterRestaurants &&
             Object.values(FilterRestaurants).map((restaurant) => {
-              // console.log(restaurant);
+              console.log(restaurant);
+              const data =
+                restaurant?.card?.gridElements?.infoWithStyle?.restaurants;
+
               return (
                 <Link
-                  to={"/restaurant/" + restaurant?.data?.data?.id}
-                  key={restaurant?.data?.data?.id}
+                  to={"/restaurant/" + restaurant?.info?.id}
+                  key={restaurant?.info?.id}
                 >
-                  <Restaurantcard {...restaurant?.data?.data} />
+                  <div className="flex flex-wrap">
+                    <Restaurantcard restaurant={restaurant?.info} />
+                  </div>
                 </Link>
               );
             })

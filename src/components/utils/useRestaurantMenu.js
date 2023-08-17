@@ -18,6 +18,7 @@ let useRestaurantMenu = (resid) => {
         throw new Error("API Internal Error");
       } else {
         const json = await data.json();
+        // console.log(json);
         setRestaurant(json?.data);
       }
     } catch (error) {

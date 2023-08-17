@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { IMG_CDN_URL } from "./constant";
 
-let Restaurantcard = ({
-  cloudinaryImageId,
-  name,
-  cuisines,
-  avgRating,
-  costForTwoString,
-  slaString,
-}) => {
+let Restaurantcard = ({ restaurant }) => {
+  // console.log(restaurant);
+  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
+    restaurant;
   const [visible, setVisible] = useState(false);
   return (
     <div
@@ -33,10 +29,10 @@ let Restaurantcard = ({
         </p>
         <p className="">
           <span className=" px-3 text-gray-400 ">|</span>
-          {slaString}
+          {sla?.slaString}
         </p>
         <p className="">
-          <span className="px-3 text-gray-400 ">|</span> {costForTwoString}
+          <span className="px-3 text-gray-400 ">|</span> {costForTwo}
         </p>
       </div>
       {visible && (

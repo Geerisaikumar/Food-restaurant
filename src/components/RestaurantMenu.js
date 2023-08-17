@@ -11,13 +11,13 @@ const RestaurantMenu = () => {
   // console.log(resid);
 
   const { restaurant } = useRestaurant(resid);
-  // console.log(restaurant);
+  console.log(restaurant);
 
   const restaurantMain = restaurant?.cards[0]?.card?.card?.info;
-  console.log("restaurantMain", restaurantMain);
+  // console.log("restaurantMain", restaurantMain);
 
   const restaurantMenuDetails =
-    restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR;
+    restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
   // console.log(restaurantMenuDetails);
 
   return !restaurant ? (
@@ -58,7 +58,7 @@ const RestaurantMenu = () => {
 
           {/* Incase of Rain / Restaurant Busy this Will be Enabled on RestaurantMenu Page */}
 
-          {restaurantMain?.expectationNotifiers[0]?.icon?.imageId ? (
+          {/* {restaurantMain?.expectationNotifiers[0]?.icon?.imageId ? (
             <div className="flex gap-2  my-1">
               <img
                 className="h-3 mt-1"
@@ -72,7 +72,7 @@ const RestaurantMenu = () => {
                 {restaurantMain?.expectationNotifiers[0]?.text}
               </p>
             </div>
-          ) : null}
+          ) : null} */}
         </div>
 
         <div className="border border-gray-200 rounded flex flex-col items-center px-1 shadow-sm">
