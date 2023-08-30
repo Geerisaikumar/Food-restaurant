@@ -76,7 +76,7 @@ const Cart = () => {
       </div>
     </div>
   ) : (
-    <div className="flex flex-col items-center my-14 mx-auto ">
+    <div className="flex flex-col items-center my-[2.42rem] mx-auto ">
       <img src={EmptyCart} className="w-80 rounded" alt="EmptyCart" />
       <h1 className="text-center text-lg font-bold py-3">Your Cart is Empty</h1>
       <p className=" text-sm text-gray-500">
