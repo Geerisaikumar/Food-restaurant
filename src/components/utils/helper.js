@@ -1,9 +1,7 @@
 import SearchErrorImg from "../../Images/SearchError.png";
 export function Filterdata(SearchTxt, AllRestaurants) {
   return AllRestaurants.filter((restaurant) =>
-    restaurant?.data?.data?.name
-      ?.toLowerCase()
-      ?.includes(SearchTxt.toLowerCase())
+    restaurant?.info?.name?.toLowerCase().includes(SearchTxt.toLowerCase())
   );
 }
 

@@ -85,8 +85,6 @@ let Body = () => {
             FilterRestaurants &&
             Object.values(FilterRestaurants).map((restaurant) => {
               console.log(restaurant);
-              const data =
-                restaurant?.card?.gridElements?.infoWithStyle?.restaurants;
 
               return (
                 <Link
