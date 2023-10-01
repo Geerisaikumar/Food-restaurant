@@ -3,7 +3,6 @@ import { RESTAURANT_MENU_URL } from "../constant";
 
 let useRestaurantMenu = (resid) => {
   let [restaurant, setRestaurant] = useState(null);
-
   useEffect(() => {
     Getrestaurantmenuinfo();
   }, []);

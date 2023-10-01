@@ -6,22 +6,16 @@ import { BiMap } from "react-icons/bi";
 import { IMG_CDN_URL } from "./constant";
 
 const Menucategories = ({ items }) => {
+  // console.log(items);
   return (
     <div>
       {items &&
         Object.values(items).map((item, indx) => {
-          // console.log(item);
-
           let data = item?.card?.card;
-          // console.log(data);
 
           const title = data?.title ? data?.title : "";
-          // console.log(title);
-
           const menuList = data?.itemCards;
-          // console.log(menuList);
           const subMenuList = data?.categories;
-          // console.log(subMenuList);
 
           const [showMenu, setShowMenu] = useState(true);
 
@@ -61,7 +55,6 @@ const Menucategories = ({ items }) => {
                     {showMenu &&
                       menuList &&
                       menuList.map((menuItem) => {
-                        // console.log(menuItem);
                         return (
                           <Menustructure
                             key={menuItem?.card?.info?.id}
@@ -77,7 +70,7 @@ const Menucategories = ({ items }) => {
                 <div className="">
                   {subMenuList &&
                     Object.values(subMenuList).map((subMenuItems) => {
-                      // console.log('subMenuItems',subMenuItems);
+                      // console.log(subMenuItems);
                       const { title, itemCards } = subMenuItems;
                       const [showSubMenu, setShowSubMenu] = useState(false);
 
@@ -109,7 +102,6 @@ const Menucategories = ({ items }) => {
                           {showSubMenu &&
                             itemCards &&
                             itemCards.map((data) => {
-                              // console.log(data);
                               return (
                                 <Menustructure
                                   key={data?.card?.info?.id}
@@ -130,7 +122,7 @@ const Menucategories = ({ items }) => {
 
       {items &&
         Object.values(items).map((data, indx) => {
-          console.log(data);
+          // console.log(data);
           data = data?.card?.card;
           return (
             <div key={indx} className="bg-gray-100 px-5 ">

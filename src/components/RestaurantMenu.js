@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import { AiOutlineClockCircle } from "react-icons/ai";
+import { Link, useParams } from "react-router-dom";
+import { AiOutlineClockCircle, AiOutlineShoppingCart } from "react-icons/ai";
 import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import useRestaurant from "./utils/useRestaurantMenu";
 import ShimmerMenu from "./Shimmer/ShimmerMenu";
@@ -7,30 +7,42 @@ import Menucategories from "./Menucategories";
 import { IMG_CDN_URL } from "./constant";
 import { useContext } from "react";
 import useContextAPI from "./utils/useContextAPI";
+import { useSelector } from "react-redux";
 
 const RestaurantMenu = () => {
+  let cartItems = useSelector((store) => store?.cart?.items);
+  // console.log(cartItems);
+
+  let totalPrice = 0;
+  cartItems.map((item) => {
+    console.log("item", item);
+    let price =
+      (item.quantity * item.price) / 100 ||
+      (item.quantity * item.defaultPrice) / 100;
+    totalPrice += price;
+    return totalPrice;
+  });
+
   let { deliveryHandler } = useContext(useContextAPI);
   let { resid } = useParams();
-  // console.log(resid);
 
   const { restaurant } = useRestaurant(resid);
   // console.log(restaurant);
-
   const restaurantMain = restaurant?.cards[0]?.card?.card?.info;
   // console.log("restaurantMain", restaurantMain);
 
-  // Delivery Charges Variable
+  const restaurantMenuDetails =
+    restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR ||
+    restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR;
+  // console.log(restaurantMenuDetails);
+
+  // ---------------   Delivery Charges Variable  ------------------------------
 
   let charges = restaurantMain?.feeDetails?.fees
     ? restaurantMain?.feeDetails?.fees[0]?.fee
     : null;
 
   deliveryHandler(charges);
-
-  const restaurantMenuDetails =
-    restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
-
-  // console.log(restaurantMenuDetails);
 
   return !restaurant ? (
     <ShimmerMenu />
@@ -51,7 +63,7 @@ const RestaurantMenu = () => {
           </h4>
           <h3 className="text-[13px] lg:text-xs pt-1 text-slate-600">
             {restaurantMain?.areaName},
-            {restaurantMain?.sla?.lastMileTravelStrin}
+            {restaurantMain?.sla?.lastMileTravelString}
           </h3>
           <div className="flex lg:gap-5 xs:gap-2 py-3 xs:text-sm font-semibold">
             <p className="flex xs:gap-1 items-center ">
@@ -104,9 +116,35 @@ const RestaurantMenu = () => {
       <div className="flex flex-col flex-wrap ">
         {restaurantMenuDetails &&
           Object.values(restaurantMenuDetails).map((menu, indx) => {
-            // console.log("menu", menu);
+            console.log("menu", menu);
 
-            return <Menucategories key={indx} items={menu} />;
+            return (
+              <div className="">
+                <Menucategories key={indx} items={menu} />
+
+                {/*  -------------   Cart item Added Pop UP  ---------------------- */}
+
+                {cartItems.length > 0 && (
+                  <Link to="/cart">
+                    <div className="bg-green-500  top-[92vh] fixed flex items-center justify-center gap-14 py-[14px] px-4 rounded text-white font-semibold ">
+                      <p className="">
+                        {cartItems.length > 1
+                          ? cartItems.length + " Items"
+                          : cartItems.length + " Item"}{" "}
+                        | {"₹ " + totalPrice}
+                      </p>
+
+                      <p className="flex items-center uppercase ">
+                        view cart
+                        <span className="ml-2">
+                          {<AiOutlineShoppingCart size={20} />}
+                        </span>
+                      </p>
+                    </div>
+                  </Link>
+                )}
+              </div>
+            );
           })}
       </div>
     </div>

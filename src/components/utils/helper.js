@@ -8,7 +8,7 @@ export function Filterdata(SearchTxt, AllRestaurants) {
 export const SearchErrorPage = () => {
   return (
     <div className="flex flex-col items-center mx-auto my-14">
-      <img src={SearchErrorImg} />
+      <img src={SearchErrorImg} alt={"SearchErrorImg"} />
       <h1 className="py-8 text-2xl">Sorry, no results found!</h1>
       <p className="text-xl text-gray-500">
         Please check the spelling or try searching for something else
@@ -17,4 +17,3 @@ export const SearchErrorPage = () => {
   );
 };
 
-// src\Images\default.jpg

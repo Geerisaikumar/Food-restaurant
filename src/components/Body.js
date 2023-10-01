@@ -52,7 +52,10 @@ let Body = () => {
     <Shimmer />
   ) : (
     <div>
-      <div className="flex sm:justify-between bg-white sm:flex-row xs:flex-col-reverse xs:py-2  sm:my-1 items-center border-b sticky top-0  h-[calc(100%-4rem)] xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-11 xl:px-5">
+      {/* Shows a Number odf Restaurants and Search Funtionlity */}
+
+      {/* xs:px-3 ss:px-4 md:px-10 lg:px-12 */}
+      <div className="flex sm:justify-between bg-white sm:flex-row xs:flex-col-reverse xs:py-2  sm:my-1 items-center border-b sticky top-0  h-[calc(100%-4rem)]  sm:px-4 md:px-10 lg:px-12 xl:px-16">
         <h1 className="font-bold xs:text-xl md:text-2xl ">
           {FilterRestaurants.length > 1
             ? FilterRestaurants.length + " Restaurants"

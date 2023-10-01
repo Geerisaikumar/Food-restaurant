@@ -7,6 +7,8 @@ const cartSlice = createSlice({
     quantity: 0,
   },
   reducers: {
+    //  ---------------   Add Item Functionality  ----------------------
+
     addItem: (state, action) => {
       // console.log(state)
       let itemIndex = state.items.findIndex(
@@ -18,9 +20,14 @@ const cartSlice = createSlice({
         state.items.push({ ...action.payload, quantity: 1 });
       }
     },
+
+    //  ---------------   Remove Item Functionality  ----------------------
+
     removeItem: (state, action) => {
       state.items.splice(action.payload, 1);
     },
+
+    //  ---------------   Qunatity Decrement  Functionality  ----------------------
 
     decrementCart: (state, action) => {
       let itemIndex = state.items.findIndex(
@@ -32,6 +39,8 @@ const cartSlice = createSlice({
         state.items.remove();
       } else return;
     },
+
+    //  ---------------   Qunatity Increment  Functionality  ----------------------
 
     incrementCart: (state, action) => {
       let itemIndex = state.items.findIndex(

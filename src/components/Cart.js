@@ -59,7 +59,12 @@ const Cart = () => {
         </div>
         <div className="flex justify-between py-5 font-bold">
           <h1 className="text-xl">Total Charges</h1>
-          <p>{"₹ " + Math.round(totalPrice + 40)}</p>
+          <p>
+            {"₹ " +
+              Math.round(
+                totalPrice + (deliveryCharges ? deliveryCharges / 100 : 0)
+              )}
+          </p>
         </div>
         <div className="flex justify-between mt-12">
           <button

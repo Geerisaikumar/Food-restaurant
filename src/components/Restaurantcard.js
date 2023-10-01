@@ -8,14 +8,14 @@ let Restaurantcard = ({ restaurant }) => {
   const [visible, setVisible] = useState(false);
   return (
     <div
-      className={`m-2 my-3 p-3 w-72 h-[21rem] rounded-md hover:shadow-2xl `}
+      className={`flex flex-col m-2 my-3 p-3 w-72 h-[21rem] rounded-md hover:shadow-2xl `}
       onMouseOver={() => setVisible(true)}
       onMouseOut={() => setVisible(false)}
     >
       <img
         className="w-72 h-44 rounded-xl"
         src={IMG_CDN_URL + cloudinaryImageId}
-        alt="restaurant"
+        alt={name}
       />
       <h3 className="first-letter:font-bold  text-sm p-1 ">{name}</h3>
       <h4 className="text-xs text-gray-600">{cuisines?.join(", ")}</h4>
