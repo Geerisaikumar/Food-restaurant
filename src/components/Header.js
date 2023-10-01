@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import userContext from "./utils/userContext";
+import userContext from "./utils/useContextAPI";
 import { useSelector } from "react-redux";
 import { HiStatusOffline, HiStatusOnline } from "react-icons/hi";
 import { RxPerson } from "react-icons/rx";
@@ -23,11 +23,10 @@ let Title = () => {
 
 let Header = () => {
   let { user } = useContext(userContext);
-  let cartItems = useSelector((store) => store.cart.items);
+  let cartItems = useSelector((store) => store?.cart?.items);
+  console.log(cartItems);
 
   let isOnline = useOnline(true);
-
-  console.log(cartItems);
 
   return (
     <div
@@ -73,7 +72,7 @@ let Header = () => {
                 <p className="w-5 h-6  relative text-center hover:border-orange">
                   <span
                     className={`absolute inset-0 pt-[2px] rounded-tl-2xl text-sm ${
-                      cartItems.length !== 0
+                      cartItems && cartItems.length !== 0
                         ? "bg-green-500 text-white hover:bg-orange border-none"
                         : "text-black border border-slate-500"
                     }`}

@@ -21,7 +21,7 @@ const Menustructure = ({ items }) => {
   return (
     <div className="flex justify-between py-2 border-gray-400 border-b ">
       <div className="">
-        <h3 className="text-[#f77f00] font-medium py-1 xs:text-sm lg:text-[0.9rem]">
+        <h3 className="text-[#f77f00] font-semibold py-1 xs:text-sm lg:text-[0.9rem]">
           {ribbon?.text ? "★ " + ribbon?.text : null}
         </h3>
         <h3 className="font-medium py-1 xs:text-sm lg:text-[0.9rem]">{name}</h3>
@@ -40,12 +40,12 @@ const Menustructure = ({ items }) => {
         />
 
         <button
-          className="border px-5 text-green-500 font-medium my-1 rounded"
+          className="border px-5 text-green-500 font-medium my-1 rounded "
           onClick={() => {
             FoodCartItems(items);
           }}
         >
-          {"Add"}
+          Add
         </button>
       </div>
     </div>

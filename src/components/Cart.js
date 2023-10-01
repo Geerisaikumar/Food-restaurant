@@ -4,12 +4,14 @@ import { clearItems } from "./utils/cartSlice";
 import { Link } from "react-router-dom";
 import EmptyCart from "../Images/empty_cart.webp";
 import Modal from "./Modal/Modal";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import useContextAPI from "./utils/useContextAPI";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store?.cart?.items);
   console.log(cartItems);
   const [openModal, setOpenModal] = useState(false);
+  const { deliveryCharges } = useContext(useContextAPI);
 
   let totalPrice = 0;
   cartItems.map((item) => {
@@ -35,7 +37,7 @@ const Cart = () => {
       </h1>
       {cartItems &&
         cartItems.map((item, id) => {
-          console.log(item);
+          // console.log(item);
           return (
             <div key={id} className="">
               <Foodcart {...item} />
@@ -53,7 +55,7 @@ const Cart = () => {
         </div>
         <div className="flex justify-between py-5 border-b-2 border-dashed">
           <h1>Delivery Charges</h1>
-          <p>{"₹" + (40.0).toFixed(2)}</p>
+          <p>{"₹" + (deliveryCharges / 100).toFixed(2)}</p>
         </div>
         <div className="flex justify-between py-5 font-bold">
           <h1 className="text-xl">Total Charges</h1>

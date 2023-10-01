@@ -13,7 +13,7 @@ let Restaurantcard = ({ restaurant }) => {
       onMouseOut={() => setVisible(false)}
     >
       <img
-        className="w-72 h-44 rounded-sm"
+        className="w-72 h-44 rounded-xl"
         src={IMG_CDN_URL + cloudinaryImageId}
         alt="restaurant"
       />

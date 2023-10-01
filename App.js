@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Cart from "./src/components/Cart";
 import Error from "./Error";
 import RestaurantMenu from "./src/components/RestaurantMenu";
-import userContext from "./src/components/utils/userContext";
+import useContextAPI from "./src/components/utils/useContextAPI";
 import { Provider } from "react-redux";
 import store from "./src/components/utils/store";
 import SignIn from "./SignIn";
@@ -18,15 +18,22 @@ let Applayout = () => {
     email: "saikumargeeri@gmail.com",
   });
 
+  let [deliveryCharges, setDeliveryCharges] = useState();
+
+  const deliveryHandler = (charges) => {
+    setDeliveryCharges(charges);
+  };
   return (
     <Provider store={store}>
-      <userContext.Provider value={{ user: user, setUser: setUser }}>
+      <useContextAPI.Provider
+        value={{ user, setUser, deliveryCharges, deliveryHandler }}
+      >
         <>
           <Header />
           <Outlet />
           <Footer />
         </>
-      </userContext.Provider>
+      </useContextAPI.Provider>
     </Provider>
   );
 };
@@ -34,7 +41,6 @@ let Applayout = () => {
 let appRouter = createBrowserRouter([
   {
     path: "/",
-
     element: <Applayout />,
     errorElement: <Error />,
     children: [

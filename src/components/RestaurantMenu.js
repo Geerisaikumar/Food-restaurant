@@ -5,19 +5,31 @@ import useRestaurant from "./utils/useRestaurantMenu";
 import ShimmerMenu from "./Shimmer/ShimmerMenu";
 import Menucategories from "./Menucategories";
 import { IMG_CDN_URL } from "./constant";
+import { useContext } from "react";
+import useContextAPI from "./utils/useContextAPI";
 
 const RestaurantMenu = () => {
+  let { deliveryHandler } = useContext(useContextAPI);
   let { resid } = useParams();
   // console.log(resid);
 
   const { restaurant } = useRestaurant(resid);
-  console.log(restaurant);
+  // console.log(restaurant);
 
   const restaurantMain = restaurant?.cards[0]?.card?.card?.info;
   // console.log("restaurantMain", restaurantMain);
 
+  // Delivery Charges Variable
+
+  let charges = restaurantMain?.feeDetails?.fees
+    ? restaurantMain?.feeDetails?.fees[0]?.fee
+    : null;
+
+  deliveryHandler(charges);
+
   const restaurantMenuDetails =
     restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR;
+
   // console.log(restaurantMenuDetails);
 
   return !restaurant ? (
@@ -31,17 +43,17 @@ const RestaurantMenu = () => {
       </div>
       <div className="flex justify-between items-center border-b border-dashed sticky top-0 bg-white h-[calc(100%-4rem)]">
         <div className="display flex flex-col">
-          <h1 className="font-bold lg:text-lg xs:text-base">
+          <h1 className="font-bold lg:text-xl xs:text-base">
             {restaurantMain?.name}
           </h1>
-          <h4 className="text-[13px] lg:text-xs text-slate-600 ">
+          <h4 className="text-[13px]  text-slate-600 ">
             {restaurantMain?.cuisines.join(", ")}
           </h4>
           <h3 className="text-[13px] lg:text-xs pt-1 text-slate-600">
             {restaurantMain?.areaName},
             {restaurantMain?.sla?.lastMileTravelStrin}
           </h3>
-          <div className="flex lg:gap-5 xs:gap-2 py-3 xs:text-sm font-medium">
+          <div className="flex lg:gap-5 xs:gap-2 py-3 xs:text-sm font-semibold">
             <p className="flex xs:gap-1 items-center ">
               <span>
                 <AiOutlineClockCircle size={20} />
@@ -56,23 +68,24 @@ const RestaurantMenu = () => {
             </p>
           </div>
 
-          {/* Incase of Rain / Restaurant Busy this Will be Enabled on RestaurantMenu Page */}
+          {/* Incase of Rain or Delivery Charges / Restaurant Busy this Will be Enabled on RestaurantMenu Page */}
 
-          {/* {restaurantMain?.expectationNotifiers[0]?.icon?.imageId ? (
-            <div className="flex gap-2  my-1">
+          {restaurantMain?.expectationNotifiers &&
+          restaurantMain?.expectationNotifiers[0]?.icon?.imageId ? (
+            <div className="flex gap-2 mb-1">
               <img
-                className="h-3 mt-1"
+                className="h-3 mt-1 "
                 src={
                   IMG_CDN_URL +
                   restaurantMain?.expectationNotifiers[0]?.icon?.imageId
                 }
                 alt="NotifiersIMG"
               />
-              <p className="text-[13px] xs:text-[11px] lg:text-[13px] text-slate-600 xs:w-72 sm:w-full ">
+              <p className="text-[13px]  lg:text-[13px] text-slate-600 xs:w-72 sm:w-full ">
                 {restaurantMain?.expectationNotifiers[0]?.text}
               </p>
             </div>
-          ) : null} */}
+          ) : null}
         </div>
 
         <div className="border border-gray-200 rounded flex flex-col items-center px-1 shadow-sm">

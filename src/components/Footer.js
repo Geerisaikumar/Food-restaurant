@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import userContext from "./utils/userContext";
+import useContextAPI from "./utils/useContextAPI";
 import { ImLinkedin2 } from "react-icons/im";
 import { TbBrandGithub } from "react-icons/tb";
 import { FaFacebookSquare } from "react-icons/fa";
@@ -7,7 +7,7 @@ import { BsTwitter, BsInstagram } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 let Footer = () => {
-  let { user } = useContext(userContext);
+  let { user } = useContext(useContextAPI);
 
   return (
     <div className="w-full bg-[#061d35] text-white py-4">

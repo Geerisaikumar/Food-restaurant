@@ -11,7 +11,6 @@ let Body = () => {
   let [AllRestaurants, SetAllRestaurants] = useState([]);
   let [SearchTxt, SetSearchTxt] = useState("");
 
-  console.log(FilterRestaurants);
   useEffect(() => {
     Getrestaurantdata();
   }, []);
@@ -25,16 +24,22 @@ let Body = () => {
       } else {
         const json = await data.json();
         console.log("json", json);
+
         SetAllRestaurants(
           json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants ||
             json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants ||
+            json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
               ?.restaurants
         );
+
         SetFilterRestaurants(
           json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
             ?.restaurants ||
             json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants ||
+            json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
               ?.restaurants
         );
       }
@@ -77,14 +82,14 @@ let Body = () => {
         </form>
       </div>
 
-      <div className="flex flex-col xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-10 xl:px-16">
+      <div className="flex flex-col mx-auto xs:px-8 ss:px-24 sm:px-6 md:px-20 lg:px-10 xl:px-16">
         <div className="flex flex-wrap font-medium">
           {FilterRestaurants.length === 0 ? (
             <SearchErrorPage />
           ) : (
             FilterRestaurants &&
             Object.values(FilterRestaurants).map((restaurant) => {
-              console.log(restaurant);
+              // console.log(restaurant);
 
               return (
                 <Link
