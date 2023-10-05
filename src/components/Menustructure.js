@@ -4,6 +4,7 @@ import { IMG_CDN_URL } from "./constant";
 import Default from "../Images/gray.jpg";
 import { FaCircle } from "react-icons/fa";
 import { TbTriangleFilled } from "react-icons/tb";
+import { lazy } from "react";
 
 const Menustructure = ({ items }) => {
   console.log("items", items);
@@ -25,14 +26,16 @@ const Menustructure = ({ items }) => {
     cartItems && (
       <div className="flex justify-between py-2 border-gray-400 border-b ">
         <div className="">
+          {/*  --------------- Type Of veg Classifier Icon and BestSeller Ribbon text  ------------------ */}
+
           <div className="flex items-center gap-2">
             {itemAttribute.vegClassifier &&
             itemAttribute.vegClassifier === "VEG" ? (
-              <p className="text-green-700 text-[10px] border border-green-700 p-[2px]">
+              <p className="text-green-700 text-[9px] border border-green-700 p-[2px]">
                 <FaCircle />
               </p>
             ) : (
-              <p className="text-red text-[10px] border border-red p-[2px]">
+              <p className="text-red text-[9px] border border-red p-[2px]">
                 <TbTriangleFilled />
               </p>
             )}
@@ -54,6 +57,7 @@ const Menustructure = ({ items }) => {
         <div className="flex flex-col items-center ">
           <img
             src={imageId ? IMG_CDN_URL + imageId : Default}
+            loading={lazy}
             className="xs:w-28 sm:w-32 lg:w-36 h-24 rounded-md object-contain"
             alt={name}
           />
