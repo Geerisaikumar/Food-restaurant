@@ -19,6 +19,7 @@ module.exports = {
         liteorange: "#ea580c",
         red: "rgb(233,55,55)",
         lightgray: "#d1d5db",
+        darkblue: "#061d35",
       },
     },
   },

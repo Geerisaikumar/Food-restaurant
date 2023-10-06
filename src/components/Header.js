@@ -73,7 +73,7 @@ let Header = () => {
                   <span
                     className={`absolute inset-0 pt-[2px] rounded-tl-2xl text-sm ${
                       cartItems && cartItems.length !== 0
-                        ? "bg-green-500 text-white hover:bg-orange border-none"
+                        ? "bg-lightgreen text-white hover:bg-orange border-none"
                         : "text-black border border-slate-500"
                     }`}
                   >

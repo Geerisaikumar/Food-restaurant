@@ -4,14 +4,20 @@ import { IMG_CDN_URL } from "./constant";
 import Default from "../Images/gray.jpg";
 import { FaCircle } from "react-icons/fa";
 import { TbTriangleFilled } from "react-icons/tb";
-import { lazy } from "react";
 
 const Menustructure = ({ items }) => {
-  console.log("items", items);
+  // console.log("items", items);
 
   const cartItems = useSelector((store) => store.cart.items);
-  const { imageId, defaultPrice, ribbon, name, description, itemAttribute } =
-    items;
+  const {
+    imageId,
+    defaultPrice,
+    ribbon,
+    name,
+    description,
+    itemAttribute,
+    nextAvailableAtMessage,
+  } = items;
 
   // console.log(cartItems);
   const price = items?.price / 100 || defaultPrice / 100;
@@ -24,14 +30,14 @@ const Menustructure = ({ items }) => {
 
   return (
     cartItems && (
-      <div className="flex justify-between py-2 border-gray-400 border-b ">
+      <div className="flex justify-between py-5 border-lightgray border-b ">
         <div className="">
           {/*  --------------- Type Of veg Classifier Icon and BestSeller Ribbon text  ------------------ */}
 
           <div className="flex items-center gap-2">
             {itemAttribute.vegClassifier &&
             itemAttribute.vegClassifier === "VEG" ? (
-              <p className="text-green-700 text-[9px] border border-green-700 p-[2px]">
+              <p className="text-darkgreen text-[9px] border border-darkgreen p-[2px]">
                 <FaCircle />
               </p>
             ) : (
@@ -54,23 +60,30 @@ const Menustructure = ({ items }) => {
             {description}
           </p>
         </div>
-        <div className="flex flex-col items-center ">
-          <img
-            src={imageId ? IMG_CDN_URL + imageId : Default}
-            loading={lazy}
-            className="xs:w-28 sm:w-32 lg:w-36 h-24 rounded-md object-contain"
-            alt={name}
-          />
 
-          <button
-            className="border px-5 text-green-500 font-medium my-1 rounded "
-            onClick={() => {
-              FoodCartItems(items);
-            }}
-          >
-            Add
-          </button>
-        </div>
+        {/*  --------------------  If Item Not Available It Shows a Item Available time ----------------------------- */}
+        {nextAvailableAtMessage ? (
+          <p className="text-[11px] border w-28 h-10 rounded p-1 text-center shadow-lg m-5">
+            {nextAvailableAtMessage}
+          </p>
+        ) : (
+          <div className="flex flex-col items-center ">
+            <img
+              src={imageId ? IMG_CDN_URL + imageId : Default}
+              className="xs:w-28 sm:w-32 lg:w-36 h-28 rounded-xl object-contain"
+              alt={name}
+            />
+
+            <button
+              className="border px-5 text-lightgreen font-medium my-1 rounded "
+              onClick={() => {
+                FoodCartItems(items);
+              }}
+            >
+              Add
+            </button>
+          </div>
+        )}
       </div>
     )
   );

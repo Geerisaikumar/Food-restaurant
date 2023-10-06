@@ -15,7 +15,7 @@ const RestaurantMenu = () => {
 
   let totalPrice = 0;
   cartItems.map((item) => {
-    console.log("item", item);
+    // console.log("item", item);
     let price =
       (item.quantity * item.price) / 100 ||
       (item.quantity * item.defaultPrice) / 100;
@@ -34,7 +34,7 @@ const RestaurantMenu = () => {
   const restaurantMenuDetails =
     restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR ||
     restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR;
-  // console.log(restaurantMenuDetails);
+  console.log(restaurantMenuDetails);
 
   // ---------------   Delivery Charges Variable  ------------------------------
 
@@ -116,7 +116,7 @@ const RestaurantMenu = () => {
       <div className="flex flex-col flex-wrap ">
         {restaurantMenuDetails &&
           Object.values(restaurantMenuDetails).map((menu, indx) => {
-            console.log("menu", menu);
+            // console.log("menu", menu);
 
             return (
               <div className="">

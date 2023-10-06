@@ -10,7 +10,7 @@ let Footer = () => {
   let { user } = useContext(useContextAPI);
 
   return (
-    <div className="w-full bg-[#061d35] text-white py-4">
+    <div className="w-full bg-darkblue text-white py-4">
       <h3 className=" text-center font-medium xs:text-[13px]">
         2023 © Food Restaurant Developed By {user.name} - {user.email}
       </h3>
