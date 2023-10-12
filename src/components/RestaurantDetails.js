@@ -1,6 +1,6 @@
 import React from "react";
 import { BiMap } from "react-icons/bi";
-import { IMG_CDN_URL } from "./Constant";
+import { ICON_URL } from "./Constant";
 
 const RestaurantDetails = ({ details }) => {
   //   console.log(details);
@@ -10,9 +10,9 @@ const RestaurantDetails = ({ details }) => {
       {imageId && (
         <div className="flex gap-4 items-center py-6 border border-b-gray-500">
           <img
-            src={imageId ? IMG_CDN_URL + imageId : null}
+            src={imageId ? ICON_URL + imageId : null}
             alt="fssai-IMG"
-            className="h-6"
+            className="w-8"
           />
           <p>{text}</p>
         </div>
