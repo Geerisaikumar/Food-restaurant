@@ -4,7 +4,7 @@ import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import useRestaurant from "./utils/useRestaurantMenu";
 import ShimmerMenu from "./Shimmer/ShimmerMenu";
 import Menucategories from "./Menucategories";
-import { IMG_CDN_URL } from "./constant";
+import { ICON_URL, IMG_CDN_URL } from "./constant";
 import { useContext } from "react";
 import useContextAPI from "./utils/useContextAPI";
 import { useSelector } from "react-redux";
@@ -26,15 +26,15 @@ const RestaurantMenu = () => {
   let { deliveryHandler } = useContext(useContextAPI);
   let { resid } = useParams();
 
-  const { restaurant } = useRestaurant(resid);
-  // console.log(restaurant);
-  const restaurantMain = restaurant?.cards[0]?.card?.card?.info;
+  const { restaurantMenu } = useRestaurant(resid);
+  // console.log(restaurantMenu);
+  const restaurantMain = restaurantMenu?.cards[0]?.card?.card?.info;
   // console.log("restaurantMain", restaurantMain);
 
   const restaurantMenuDetails =
-    restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR ||
-    restaurant?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR;
-  console.log(restaurantMenuDetails);
+    restaurantMenu?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR ||
+    restaurantMenu?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR;
+  // console.log(restaurantMenuDetails);
 
   // ---------------   Delivery Charges Variable  ------------------------------
 
@@ -44,7 +44,7 @@ const RestaurantMenu = () => {
 
   deliveryHandler(charges);
 
-  return !restaurant ? (
+  return !restaurantMenu ? (
     <ShimmerMenu />
   ) : (
     //     ----------    Restaurant Name   ------------------
@@ -62,7 +62,7 @@ const RestaurantMenu = () => {
             {restaurantMain?.cuisines.join(", ")}
           </h4>
           <h3 className="text-[13px] lg:text-xs pt-1 text-slate-600">
-            {restaurantMain?.areaName},
+            {restaurantMain?.areaName},{" "}
             {restaurantMain?.sla?.lastMileTravelString}
           </h3>
           <div className="flex lg:gap-5 xs:gap-2 py-3 xs:text-sm font-semibold">
@@ -84,11 +84,11 @@ const RestaurantMenu = () => {
 
           {restaurantMain?.expectationNotifiers &&
           restaurantMain?.expectationNotifiers[0]?.icon?.imageId ? (
-            <div className="flex gap-2 mb-1">
+            <div className="flex gap-2 mb-1 items-center">
               <img
-                className="h-3 mt-1 "
+                className="w-5 h-[19px]"
                 src={
-                  IMG_CDN_URL +
+                  ICON_URL +
                   restaurantMain?.expectationNotifiers[0]?.icon?.imageId
                 }
                 alt="NotifiersIMG"
@@ -124,25 +124,27 @@ const RestaurantMenu = () => {
 
                 {/*  -------------   Cart item Added Pop UP  ---------------------- */}
 
-                {cartItems.length > 0 && (
-                  <Link to="/cart">
-                    <div className="bg-green-500  top-[92vh] fixed flex items-center justify-center gap-14 py-[14px] px-4 rounded text-white font-semibold ">
-                      <p className="">
-                        {cartItems.length > 1
-                          ? cartItems.length + " Items"
-                          : cartItems.length + " Item"}{" "}
-                        | {"₹ " + totalPrice}
-                      </p>
+                <div className="">
+                  {cartItems.length > 0 && (
+                    <Link to="/cart">
+                      <div className="bg-green-500 top-[92vh] fixed flex items-center justify-between gap-14 py-[14px] px-4 rounded text-white font-semibold ">
+                        <p className="">
+                          {cartItems.length > 1
+                            ? cartItems.length + " Items"
+                            : cartItems.length + " Item"}
+                          | {"₹ " + totalPrice}
+                        </p>
 
-                      <p className="flex items-center uppercase ">
-                        view cart
-                        <span className="ml-2">
-                          {<AiOutlineShoppingCart size={20} />}
-                        </span>
-                      </p>
-                    </div>
-                  </Link>
-                )}
+                        <p className="flex items-center uppercase ">
+                          view cart
+                          <span className="ml-2">
+                            {<AiOutlineShoppingCart size={20} />}
+                          </span>
+                        </p>
+                      </div>
+                    </Link>
+                  )}
+                </div>
               </div>
             );
           })}

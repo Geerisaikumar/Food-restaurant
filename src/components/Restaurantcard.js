@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { IMG_CDN_URL } from "./constant";
+import { IMG_CDN_URL } from "./Constant";
 
 let Restaurantcard = ({ restaurant }) => {
   // console.log(restaurant);

@@ -67,10 +67,10 @@ const Menustructure = ({ items }) => {
             {nextAvailableAtMessage}
           </p>
         ) : (
-          <div className="flex flex-col items-center ">
+          <div className="flex flex-col items-center">
             <img
               src={imageId ? IMG_CDN_URL + imageId : Default}
-              className="xs:w-28 sm:w-32 lg:w-36 h-28 rounded-xl object-contain"
+              className="xs:w-28 sm:w-32 lg:w-40 rounded-xl object-contain"
               alt={name}
             />
 

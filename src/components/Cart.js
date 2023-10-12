@@ -1,21 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
 import Foodcart from "./Foodcart";
 import { clearItems } from "./utils/cartSlice";
-import { Link } from "react-router-dom";
-import EmptyCart from "../Images/empty_cart.webp";
 import Modal from "./Modal/Modal";
 import { useContext, useState } from "react";
 import useContextAPI from "./utils/useContextAPI";
+import { CartEmpty } from "./utils/helper";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store?.cart?.items);
-  console.log(cartItems);
   const [openModal, setOpenModal] = useState(false);
   const { deliveryCharges } = useContext(useContextAPI);
 
   let totalPrice = 0;
   cartItems.map((item) => {
-    console.log("item", item);
+    // console.log("item", item);
     let price =
       (item.quantity * item.price) / 100 ||
       (item.quantity * item.defaultPrice) / 100;
@@ -83,16 +81,7 @@ const Cart = () => {
       </div>
     </div>
   ) : (
-    <div className="flex flex-col items-center my-[2.42rem] mx-auto ">
-      <img src={EmptyCart} className="w-80 rounded" alt="EmptyCart" />
-      <h1 className="text-center text-lg font-bold py-3">Your Cart is Empty</h1>
-      <p className=" text-sm text-gray-500">
-        You can go to home page to view more restaurants
-      </p>
-      <button className="mt-5 px-2 py-2 font-medium button-class capitalize">
-        <Link to={"/"}>See restaurants near you</Link>
-      </button>
-    </div>
+    <CartEmpty />
   );
 };
 

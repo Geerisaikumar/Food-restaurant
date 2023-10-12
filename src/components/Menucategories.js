@@ -2,8 +2,7 @@ import React, { Children } from "react";
 import Menustructure from "./Menustructure";
 import { useState } from "react";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
-import { BiMap } from "react-icons/bi";
-import { IMG_CDN_URL } from "./constant";
+import RestaurantDetails from "./RestaurantDetails";
 
 const Menucategories = ({ items }) => {
   // console.log(items);
@@ -23,31 +22,33 @@ const Menucategories = ({ items }) => {
             title && (
               <div key={indx}>
                 <div>
-                  <div className="flex justify-between py-4 ">
-                    <p className="font-bold text-[17px] pt-1 ">
-                      {title}
-                      {menuList ? " (" + menuList?.length + ")" : null}
-                    </p>
-                    {menuList ? (
-                      showMenu ? (
-                        <button
-                          className="mr-5"
-                          onClick={() => setShowMenu(false)}
-                        >
-                          <BsChevronUp size={18} />
-                        </button>
+                  {title && (
+                    <div className="flex justify-between py-4">
+                      <p className="font-bold text-[17px] pt-1 ">
+                        {title}
+                        {menuList ? " (" + menuList?.length + ")" : null}
+                      </p>
+                      {menuList ? (
+                        showMenu ? (
+                          <button
+                            className="mr-5"
+                            onClick={() => setShowMenu(false)}
+                          >
+                            <BsChevronUp size={18} />
+                          </button>
+                        ) : (
+                          <button
+                            className="mr-5"
+                            onClick={() => setShowMenu(true)}
+                          >
+                            <BsChevronDown size={18} />
+                          </button>
+                        )
                       ) : (
-                        <button
-                          className="mr-5"
-                          onClick={() => setShowMenu(true)}
-                        >
-                          <BsChevronDown size={18} />
-                        </button>
-                      )
-                    ) : (
-                      ""
-                    )}
-                  </div>
+                        ""
+                      )}
+                    </div>
+                  )}
 
                   {/* -----------------------   Main Menu Items   ---------------------------------------  */}
 
@@ -124,35 +125,7 @@ const Menucategories = ({ items }) => {
         Object.values(items).map((data, indx) => {
           // console.log(data);
           data = data?.card?.card;
-          return (
-            <div key={indx} className="bg-gray-100 px-5 ">
-              {data?.imageId && (
-                <div className="flex gap-4 items-center py-6 border border-b-gray-500">
-                  <img
-                    src={data?.imageId ? IMG_CDN_URL + data?.imageId : null}
-                    alt="fssai-IMG"
-                    className="h-6"
-                  />
-                  <p>{data?.text}</p>
-                </div>
-              )}
-              {data?.area && (
-                <div className="py-6 pb-10 h-52">
-                  <p className="text-slate-700 font-medium ">{data?.name}</p>
-                  <p className="text-sm text-slate-600">
-                    {data?.area ? "( Outlet:" + data?.area + ")" : false}
-                  </p>
-
-                  <div className="flex items-center gap-3 text-slate-500 py-3">
-                    <BiMap />
-                    <p className="sm:text-xs md:text-[14px] ">
-                      {data?.completeAddress}
-                    </p>
-                  </div>
-                </div>
-              )}
-            </div>
-          );
+          return <RestaurantDetails key={indx} details={data} />;
         })}
     </div>
   );

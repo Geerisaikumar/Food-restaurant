@@ -7,3 +7,18 @@
     @apply border border-orange hover:bg-orange hover:text-white rounded;
   }
 }
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #edede9;
+    border-radius: 50px;
+  }
+}

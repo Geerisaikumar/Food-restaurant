@@ -30,7 +30,7 @@ let Header = () => {
 
   return (
     <div
-      className="flex justify-between items-center py-1 xs:px-3 ss:px-4 md:px-10 lg:px-12 xl:px-16 shadow-md bg-white 
+      className="flex justify-between items-center py-1 xs:px-3 ss:px-4 md:px-10 lg:px-12 xl:px-16 shadow
      z-10"
     >
       <Title />

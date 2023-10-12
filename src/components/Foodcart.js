@@ -1,12 +1,11 @@
 import React from "react";
-import { IMG_CDN_URL } from "./constant";
+import { IMG_CDN_URL } from "./Constant";
 import Default from "../Images/gray.jpg";
 import { useDispatch } from "react-redux";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { decrementCart, incrementCart, removeItem } from "./utils/cartSlice";
 
 const Foodcart = (cartitem) => {
-  console.log(cartitem);
   const { name, price, defaultPrice, imageId } = cartitem;
   const priceItem = price / 100 || defaultPrice / 100;
   // console.log(id);

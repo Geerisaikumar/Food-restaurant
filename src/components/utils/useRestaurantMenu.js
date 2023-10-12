@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { RESTAURANT_MENU_URL } from "../constant";
 
 let useRestaurantMenu = (resid) => {
-  let [restaurant, setRestaurant] = useState(null);
+  let [restaurantMenu, setRestaurantMenu] = useState(null);
   useEffect(() => {
     Getrestaurantmenuinfo();
   }, []);
@@ -18,13 +18,13 @@ let useRestaurantMenu = (resid) => {
       } else {
         const json = await data.json();
         // console.log(json);
-        setRestaurant(json?.data);
+        setRestaurantMenu(json?.data);
       }
     } catch (error) {
       console.log(error);
     }
   }
-  return { restaurant };
+  return { restaurantMenu };
 };
 
 export default useRestaurantMenu;
