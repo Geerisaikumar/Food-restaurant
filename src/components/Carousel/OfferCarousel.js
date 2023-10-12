@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ICON_URL, IMG_CDN_URL } from "../Constant";
+import { ICON_URL, IMG_CDN_URL } from "../constant";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 import { Link } from "react-router-dom";
 

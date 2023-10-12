@@ -4,7 +4,7 @@ import { HiOutlineCurrencyRupee } from "react-icons/hi";
 import useRestaurant from "./utils/useRestaurantMenu";
 import ShimmerMenu from "./Shimmer/ShimmerMenu";
 import Menucategories from "./Menucategories";
-import { ICON_URL } from "./Constant";
+import { ICON_URL } from "./constant";
 import { useContext } from "react";
 import useContextAPI from "./utils/useContextAPI";
 import { useSelector } from "react-redux";

@@ -1,5 +1,5 @@
 import React from "react";
-import { ICON_URL } from "../Constant";
+import { ICON_URL } from "../constant";
 
 const SubCarousel = ({ data }) => {
   return (

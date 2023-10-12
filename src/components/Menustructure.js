@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "./utils/cartSlice";
-import { IMG_CDN_URL } from "./Constant";
+import { IMG_CDN_URL } from "./constant";
 import Default from "../Images/gray.jpg";
 import { FaCircle } from "react-icons/fa";
 import { TbTriangleFilled } from "react-icons/tb";
