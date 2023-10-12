@@ -12,7 +12,7 @@ const RestaurantDetails = ({ details }) => {
           <img
             src={imageId ? ICON_URL + imageId : null}
             alt="fssai-IMG"
-            className="w-8"
+            className="h-8 w-12"
           />
           <p>{text}</p>
         </div>
