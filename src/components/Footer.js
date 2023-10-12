@@ -21,10 +21,10 @@ let Footer = () => {
         <Link to={"https://github.com/Geerisaikumar"} className="">
           <TbBrandGithub size={20} />
         </Link>
-        <Link to={"https://twitter.com/gabbar_0nline"} className="">
+        <Link to={"https://twitter.com/Saikumar_Geeri"} className="">
           <BsTwitter size={20} />
         </Link>
-        <Link to={"https://www.instagram.com/gabbaronline/"} className="">
+        <Link to={"https://www.instagram.com/gabbarsingh_03/"} className="">
           <BsInstagram size={20} />
         </Link>
         <Link to={"https://www.facebook.com/"} className="">

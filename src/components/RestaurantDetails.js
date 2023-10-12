@@ -1,9 +1,9 @@
 import React from "react";
 import { BiMap } from "react-icons/bi";
-import { IMG_CDN_URL } from "./constant";
+import { IMG_CDN_URL } from "./Constant";
 
 const RestaurantDetails = ({ details }) => {
-//   console.log(details);
+  //   console.log(details);
   const { imageId, text, area, name, completeAddress } = details;
   return (
     <div className="bg-gray-100 px-5 ">
