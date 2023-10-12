@@ -1,6 +1,6 @@
 import React from "react";
 import { BiMap } from "react-icons/bi";
-import { ICON_URL } from "./Constant";
+import { ICON_URL } from "./constant";
 
 const RestaurantDetails = ({ details }) => {
   //   console.log(details);

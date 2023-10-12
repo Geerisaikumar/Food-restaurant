@@ -1,5 +1,5 @@
 import React from "react";
-import { IMG_CDN_URL } from "./Constant";
+import { IMG_CDN_URL } from "./constant";
 import Default from "../Images/gray.jpg";
 import { useDispatch } from "react-redux";
 import { AiOutlineCloseCircle } from "react-icons/ai";
