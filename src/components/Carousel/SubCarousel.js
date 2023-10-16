@@ -1,27 +1,43 @@
-import React from "react";
 import { ICON_URL } from "../constant";
+import { Link } from "react-router-dom";
 
 const SubCarousel = ({ data }) => {
+  // console.log(data);
   return (
-    <div className="mx-20 py-3">
-      <h2 className="xs:text-[1.1rem] sm:text-xl font-bold text-black/80">
-        {data?.header?.title}
-      </h2>
-      <div className="flex w-[100%] gap-5 overflow-auto scroll-smooth scrollbar">
-        {data?.gridElements?.infoWithStyle?.info.map((item) => {
-          //   console.log(item);
-          return (
-            //   <div  className="flex">
-            <img
-              key={item.id}
-              className="xs:w-28 sm:w-36 cursor-not-allowed"
-              src={ICON_URL + item.imageId}
-              alt={item?.action?.text}
-            />
-            //   </div>
-          );
-        })}
-      </div>
+    <div className="flex gap-5 overflow-auto scroll-smooth scrollbar">
+      {data?.gridElements?.infoWithStyle?.info.map((item) => {
+        // console.log(item);
+
+        // --------------------   Get Entity Id From URL ------------------------
+
+        const url = item?.entityId;
+        let collectionId;
+
+        // Function to extract collection_id
+        function extractCollectionId(url) {
+          const match = url.match(/collection_id=(\d+)/) || url.length <= 5;
+          // console.log(match);
+          if (match && match[1]) {
+            return match[1];
+          }
+          return url;
+        }
+
+        // Call the function to extract collection_id
+        collectionId = extractCollectionId(url);
+
+        return (
+          <Link key={item.id} to={`/collection/${collectionId}`}>
+            <div className="flex xs:w-28 sm:w-[8.5rem]">
+              <img
+                className="w-full"
+                src={ICON_URL + item.imageId}
+                alt={item?.action?.text}
+              />
+            </div>
+          </Link>
+        );
+      })}
     </div>
   );
 };

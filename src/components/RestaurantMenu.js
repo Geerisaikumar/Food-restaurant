@@ -86,7 +86,7 @@ const RestaurantMenu = () => {
           restaurantMain?.expectationNotifiers[0]?.icon?.imageId ? (
             <div className="flex gap-2 mb-1 items-center">
               <img
-                className="w-5 h-[19px]"
+                className="w-5 h-[18px]"
                 src={
                   ICON_URL +
                   restaurantMain?.expectationNotifiers[0]?.icon?.imageId
@@ -100,9 +100,9 @@ const RestaurantMenu = () => {
           ) : null}
         </div>
 
-        <div className="border border-gray-200 rounded flex flex-col items-center px-1 shadow-sm">
-          <p className="text-darkgreen font-bold text-xs border-b py-2 text-center">
-            <span className="text-[1rem] pr-1">★</span>
+        <div className="border border-gray-200 rounded-lg flex flex-col items-center px-1 shadow-sm">
+          <p className="text-darkgreen font-bold text-sm border-b py-2 text-center">
+            <span className="text-[1.1rem] pr-1">★</span>
             {restaurantMain?.avgRating}
           </p>
           <p className="text-[10px] text-slate-600 lg:font-medium py-2">

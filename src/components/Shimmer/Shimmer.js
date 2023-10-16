@@ -2,9 +2,9 @@ import { ImSpinner2 } from "react-icons/im";
 let Shimmer = () => {
   return (
     <div>
-      <div className="flex flex-col items-center justify-center bg-gray-100 h-60">
-        <ImSpinner2 size={40} className="animate-spin" />
-        <p className="pt-5 xs:text-xl sm:text-2xl text-3xl font-medium text-lightgreen">
+      <div className="flex flex-col items-center justify-center bg-gray-100 h-72">
+        <ImSpinner2 size={60} className="animate-spin" />
+        <p className="pt-8 xs:text-xl sm:text-2xl text-3xl font-medium text-lightgreen">
           Looking for great food...
         </p>
       </div>

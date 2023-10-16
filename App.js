@@ -11,6 +11,7 @@ import useContextAPI from "./src/components/utils/useContextAPI";
 import { Provider } from "react-redux";
 import store from "./src/components/utils/store";
 import SignIn from "./SignIn";
+import SubCarouselItem from "./src/components/Carousel/SubCarouselItem";
 
 let Applayout = () => {
   let [user, setUser] = useState({
@@ -55,6 +56,10 @@ let appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resid",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/collection/:collectionid",
+        element: <SubCarouselItem />,
       },
       {
         path: "/sign-in",

@@ -55,11 +55,16 @@ let Body = () => {
         </form>
       </div>
 
-      <div className="flex flex-col ">
+      <div className="xs:px-8 ss:px-24 sm:px-4 md:px-20 lg:px-8 xl:px-16 py-3">
         <OfferCarousel data={RestaurantCarousel} />
-        <SubCarousel data={itemCarousel} />
+        <div className="">
+          <h2 className="xs:text-[1.1rem] sm:text-xl font-bold text-black/80 mt-3">
+            {itemCarousel?.header?.title}
+          </h2>
+          <SubCarousel data={itemCarousel} />
+        </div>
 
-        <div className="flex flex-wrap font-medium xs:px-8 ss:px-24 sm:px-4 md:px-20 lg:px-8 xl:px-16">
+        <div className="flex flex-wrap font-medium ">
           {FilterRestaurants.length === 0 ? (
             <SearchErrorPage />
           ) : (
