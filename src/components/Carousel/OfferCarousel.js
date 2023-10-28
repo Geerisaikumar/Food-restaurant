@@ -76,7 +76,7 @@ const OfferCarousel = ({ data }) => {
                   // `/restaurant/${item?.id}`
                 }
               >
-                <div className="flex xs:w-96 sm:w-[26rem]">
+                <div className="flex xs:w-[17rem] sm:w-[26rem]">
                   <img
                     className="rounded-2xl w-full mb-3 "
                     src={IMG_CDN_URL + item?.imageId}

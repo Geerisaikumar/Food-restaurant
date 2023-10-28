@@ -49,7 +49,7 @@ const RestaurantMenu = () => {
   ) : (
     //     ----------    Restaurant Name   ------------------
 
-    <div className="display flex flex-col xs:mx-2 ss:mx-10 sm:mx-16 md:mx-28 lg:mx-32 xl:mx-60 ">
+    <div className="display flex flex-col xs:mx-2 ss:mx-10 sm:mx-16 md:mx-28 lg:mx-32 xl:mx-60">
       <div className="py-5">
         <p className="text-[0.675rem] text-gray-500">{`Home / ${restaurantMain?.city} / ${restaurantMain?.name}`}</p>
       </div>
@@ -113,7 +113,7 @@ const RestaurantMenu = () => {
 
       {/* ----------    Restaurant Menuitems   ------------------ */}
 
-      <div className="flex flex-col flex-wrap ">
+      <div className="flex flex-col flex-wrap">
         {restaurantMenuDetails &&
           Object.values(restaurantMenuDetails).map((menu, indx) => {
             // console.log("menu", menu);

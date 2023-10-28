@@ -14,7 +14,7 @@ const useRestaurantData = () => {
   async function Getrestaurantdata() {
     try {
       const data = await fetch(RESTAURANT_API);
-      // console.log(data)
+      console.log(data)
       if (data.status !== 200) {
         throw new Error("API Internal Error");
       } else {

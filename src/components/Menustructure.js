@@ -49,7 +49,7 @@ const Menustructure = ({ items }) => {
               {ribbon?.text ? "★ " + ribbon?.text : null}
             </h3>
           </div>
-          <h3 className="font-medium py-1 xs:text-sm lg:text-[0.9rem]">
+          <h3 className="font-medium py-1 xs:text-sm lg:text-[0.9rem] ">
             {name}
           </h3>
           <h3 className="text-sm">{"₹ " + price}</h3>

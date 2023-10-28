@@ -24,9 +24,11 @@ const RestaurantDetails = ({ details }) => {
             {area ? "( Outlet:" + area + ")" : false}
           </p>
 
-          <div className="flex items-center gap-3 text-slate-500 py-3">
-            <BiMap />
-            <p className="sm:text-xs md:text-[14px] ">{completeAddress}</p>
+          <div className="flex gap-3 text-slate-500 py-3">
+            <BiMap size={20} />
+            <p className="xs:text-[11px] sm:text-xs md:text-[14px] ">
+              {completeAddress}
+            </p>
           </div>
         </div>
       )}
