@@ -5,7 +5,7 @@ const SubCarousel = ({ data }) => {
   // console.log(data);
   return (
     <div className="flex gap-5 overflow-auto scroll-smooth scrollbar">
-      {data?.gridElements?.infoWithStyle?.info.map((item) => {
+      {data?.gridElements?.infoWithStyle?.info?.map((item) => {
         // console.log(item);
 
         // --------------------   Get Entity Id From URL ------------------------

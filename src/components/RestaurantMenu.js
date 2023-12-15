@@ -14,7 +14,7 @@ const RestaurantMenu = () => {
   // console.log(cartItems);
 
   let totalPrice = 0;
-  cartItems.map((item) => {
+  cartItems.forEach((item) => {
     // console.log("item", item);
     let price =
       (item.quantity * item.price) / 100 ||
@@ -119,8 +119,8 @@ const RestaurantMenu = () => {
             // console.log("menu", menu);
 
             return (
-              <div className="">
-                <Menucategories key={indx} items={menu} />
+              <div className="" key={indx}>
+                <Menucategories items={menu} />
 
                 {/*  -------------   Cart item Added Pop UP  ---------------------- */}
 

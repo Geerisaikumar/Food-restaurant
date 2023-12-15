@@ -15,7 +15,7 @@ let Footer = () => {
         2023 © Food Restaurant Developed By {user.name} - {user.email}
       </h3>
       <div className="flex items-center justify-center gap-5 pt-5">
-        <Link to={"https://www.linkedin.com/in/saikumar-geeri/"} className="">
+        <Link to={"https://www.linkedin.com/in/saikumar-reddy-4b757b2a4/"} className="">
           <ImLinkedin2 size={20} />
         </Link>
         <Link to={"https://github.com/Geerisaikumar"} className="">
