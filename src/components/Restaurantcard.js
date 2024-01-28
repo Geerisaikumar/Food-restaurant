@@ -9,7 +9,7 @@ let Restaurantcard = ({ restaurant }) => {
   const [visible, setVisible] = useState(false);
   return (
     <div
-      className={`flex flex-col m-2 my-3 p-3 w-72 min-h-[21.4rem] rounded-md hover:shadow-2xl `}
+      className={`flex flex-col m-2 my-3 p-3 w-72 min-h-[21.4rem] rounded-md hover:shadow-2xl text-slate-600 [font-weight:600]`}
       onMouseOver={() => setVisible(true)}
       onMouseOut={() => setVisible(false)}
     >
@@ -18,7 +18,9 @@ let Restaurantcard = ({ restaurant }) => {
         src={IMG_CDN_URL + cloudinaryImageId || RestaurantImg}
         alt={name}
       />
-      <h3 className="first-letter:font-bold  text-sm p-1 ">{name}</h3>
+      <h3 className="first-letter:font-bold first-letter:text-black text-sm p-1 ">
+        {name}
+      </h3>
       <h4 className="text-xs text-gray-600">{cuisines?.join(", ")}</h4>
       <div className="flex justify-between py-3 items-center text-[12px] text-gray-600">
         <p

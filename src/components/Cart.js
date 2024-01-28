@@ -29,7 +29,7 @@ const Cart = () => {
   // xs:mx-5 ss:mx-10 sm:mx-20 md:mx-44 lg:mx-32 xl:mx-60
 
   return cartItems.length ? (
-    <div className="flex flex-col justify-center xs:mx-1 ss:mx-5 my-5 sm:mx-12 md:mx-24 lg:mx-36 xl:mx-72 z-0">
+    <div className="flex flex-col justify-center xs:mx-1 ss:mx-5 my-5 sm:mx-12 md:mx-24 lg:mx-36 xl:mx-72 z-0 ">
       <h1 className="xs:text-xl sm:text-2xl font-medium text-orange ">
         Cart Summary Details
       </h1>
@@ -37,12 +37,12 @@ const Cart = () => {
         cartItems.map((item, id) => {
           // console.log(item);
           return (
-            <div key={id} className="">
+            <div key={id} className="text-slate-600 [font-weight:600]">
               <Foodcart {...item} />
             </div>
           );
         })}
-      <div className="xs:px-3 sm:px-6">
+      <div className="xs:px-3 sm:px-6 text-slate-600 [font-weight:600]">
         <div className="flex items-center justify-center z-20">
           {openModal && <Modal />}
         </div>

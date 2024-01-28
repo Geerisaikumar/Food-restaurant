@@ -14,7 +14,7 @@ const useRestaurantData = () => {
   async function Getrestaurantdata() {
     try {
       const data = await fetch(RESTAURANT_API);
-      console.log(data)
+      console.log(data);
       if (data.status !== 200) {
         throw new Error("API Internal Error");
       } else {
@@ -39,7 +39,9 @@ const useRestaurantData = () => {
               ?.restaurants
         );
         SetRestaurantCarousel(json?.data?.cards[0]?.card?.card);
-        SetItemCarousel(json?.data?.cards[1]?.card?.card);
+        SetItemCarousel(
+          json?.data?.cards[0]?.card?.card || json?.data?.cards[1]?.card?.card
+        );
       }
     } catch (error) {
       console.log(error);

@@ -24,14 +24,14 @@ const Foodcart = (cartitem) => {
   };
 
   return (
-    <div className="flex justify-between py-2 border-b items-center z-0">
+    <div className="flex justify-between py-2 border-b items-center z-0 ">
       <div className="flex xs:gap-2 ss:gap-2 sm:gap-5 h-24 items-center">
         <img
           src={imageId ? IMG_CDN_URL + imageId : Default}
           className="xs:w-24 sm:w-32  rounded"
           alt="RestaurantCardIMG"
         />
-        <p className="xs:text-xs ss:text-sm font-bold xs:w-28 ss:w-60">
+        <p className="xs:text-xs ss:text-sm text-black font-bold xs:w-28 ss:w-60">
           {name}
         </p>
       </div>

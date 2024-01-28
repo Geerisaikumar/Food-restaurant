@@ -25,7 +25,7 @@ let Body = () => {
     <div>
       {/* Shows a Number odf Restaurants and Search Funtionlity */}
 
-      <div className="flex sm:justify-between bg-white sm:flex-row xs:flex-col-reverse xs:py-2 sm:my-1 shadow-sm items-center sticky top-0  h-[calc(100%-4rem)] sm:px-4 md:px-10 lg:px-12 xl:px-16">
+      <div className="flex sm:justify-between bg-white sm:flex-row xs:flex-col-reverse xs:py-2 sm:my-1 shadow-sm items-center sticky top-0  h-[calc(100%-4rem)] sm:px-4 md:px-10 lg:px-12 xl:px-16 text-slate-600 [font-weight:600">
         <h1 className="font-bold xs:text-xl md:text-2xl ">
           {FilterRestaurants.length > 1
             ? FilterRestaurants.length + " Restaurants"
@@ -56,9 +56,9 @@ let Body = () => {
       </div>
 
       <div className="xs:px-8 ss:px-24 sm:px-4 md:px-20 lg:px-8 xl:px-16 py-3">
-        <OfferCarousel data={RestaurantCarousel} />
+        {/* <OfferCarousel data={RestaurantCarousel} /> */}
         <div className="">
-          <h2 className="xs:text-[1.1rem] sm:text-xl font-bold text-black/80 mt-3">
+          <h2 className="xs:text-[1.1rem] sm:text-xl font-bold text-slate-600 mt-3">
             {itemCarousel?.header?.title}
           </h2>
           <SubCarousel data={itemCarousel} />

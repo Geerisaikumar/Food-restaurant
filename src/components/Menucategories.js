@@ -24,7 +24,7 @@ const Menucategories = ({ items }) => {
                 <div>
                   {title && (
                     <div className="flex justify-between py-4">
-                      <p className="font-bold text-[17px] pt-1 ">
+                      <p className="font-bold text-[17px] pt-1 text-black">
                         {title}
                         {menuList ? " (" + menuList?.length + ")" : null}
                       </p>
